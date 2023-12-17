@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-const pokemons = require("./models/pokemon");
+// const pokemon = require("./models/pokemon");
 const methodOverride = require("method-override");
 const Poke = require("./models/poke");
 const jsxViewEngine = require("jsx-view-engine");
@@ -27,9 +27,12 @@ app.use((req, res, next) => {
   next();
 });
 
+
 //near top, around the other app.use() calls
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
+
+
 
 app.get("/", (req, res) => {
   res.send("Welcome to the Pokemon App!");
@@ -77,16 +80,16 @@ app.put("/pokemon/:id", async (req, res) => {
 // C - CREATE - update our data store
 app.post("/pokemon", async (req, res) => {
   try {
-    const createdPokemon = await Poke.create(req.body);
+    const newPokemon = {
+        name: req.body.name,
+        img: req.body.img,
+    };
+    const createdPokemon = await Poke.create(newPokemon);
     res.status(200).redirect("/pokemon");
   } catch (err) {
     res.status(400).send(err);
   }
-  // fruits.push(req.body);
-  // console.log(fruits);
-  // console.log(req.body)
-  //  res.send('data received');
-  // res.redirect('/fruits'); // send user back to /fruits
+
 });
 //E Edit - allows user to provide inputs to change the pokemon
 app.get("/pokemon/:id/edit", async (req, res) => {

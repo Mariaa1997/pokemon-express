@@ -1,5 +1,6 @@
 const React = require('react');
 
+
 class New extends React.Component {
     render () {
         return (
@@ -17,7 +18,7 @@ class New extends React.Component {
                     <br />
                     <a href="/pokemon">Back</a>
                 </form>
-            </div>
+            </div> 
         )
     }
 }
