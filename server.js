@@ -80,11 +80,11 @@ app.put("/pokemon/:id", async (req, res) => {
 // C - CREATE - update our data store
 app.post("/pokemon", async (req, res) => {
   try {
-    const newPokemon = {
-        name: req.body.name,
-        img: req.body.img,
-    };
-    const createdPokemon = await Poke.create(newPokemon);
+    // const newPokemon = {
+    //     name: req.body.name,
+    //     img: req.body.img,
+    // };
+    const createdPokemon = await Poke.create(req.body);
     res.status(200).redirect("/pokemon");
   } catch (err) {
     res.status(400).send(err);

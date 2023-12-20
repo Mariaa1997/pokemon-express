@@ -24,8 +24,7 @@ class New extends React.Component {
             );
           })}
           <br />
-          Img: <input name="img" /> <br />
-          <input type="submit" name="" value="Create Poke" />
+          <button type="submit">Create Poke</button>
           <br />
           <br />
           <br />

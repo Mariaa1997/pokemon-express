@@ -7,9 +7,8 @@ class Show extends React.Component {
             <div>
                 <h1>Gotta Catch 'Em All</h1>
                 <h2>Name: {poke.name}</h2>
-                <img src={`${poke.img}.jpg`} alt={`${poke.name} image`}/>
+                <img src={poke.img} alt={`${poke.name} image`}/>
                 <a href={`/pokemon/${poke._id}/Index`}></a>
-                {/* <p>The {poke.name} is {poke.img}</p> */}
                 <br />
                 <br />
                 <br />
