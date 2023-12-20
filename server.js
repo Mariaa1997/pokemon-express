@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const methodOverride = require("method-override");
 const Poke = require("./models/poke");
 const jsxViewEngine = require("jsx-view-engine");
+const PORT = process.env.PORT || 3003;
 
 //Global configuration
 const mongoURI = process.env.MONGO_URI;
@@ -111,6 +112,6 @@ app.get("/pokemon/:id", async (req, res) => {
   }
 });
 
-app.listen(3003, () => {
-  console.log("listening");
+app.listen(PORT, () => {
+  console.log(`server started on port ${PORT}`);
 });
